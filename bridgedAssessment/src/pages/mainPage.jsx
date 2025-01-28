@@ -1,9 +1,11 @@
 import React from 'react'
-
+import useTitle from '../hooks/useTitle'
+import DomainList from '../components/domainList'
 const mainPage = () => {
-  return (
-    <div>mainPage</div>
-  )
+    useTitle("Bridged Assessment")
+    return (
+        <DomainList />
+    )
 }
 
 export default mainPage

@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import MainPage from './pages/mainPage.jsx'
 
-createRoot(document.getElementById('root')).render(
+createRoot(
+  document.getElementById('root')).render(
   <StrictMode>
     <MainPage />
   </StrictMode>,

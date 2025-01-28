@@ -1,16 +1,26 @@
 @import "tailwindcss";
+@theme {
 
+  --breakpoint-3xl: 120rem;
+}
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto',Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  max-width: 100vw;
   color-scheme: light dark;
   color: red(255, 255, 255, 0.87);
   background-color: white;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+p{
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.ant-btn-lg{
+  height: 60px;
 }
