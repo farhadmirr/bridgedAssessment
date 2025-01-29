@@ -1,10 +1,12 @@
 import React from "react";
 import { Form, Input, Button, message } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addDomain } from "../../redux/domainSlice";
 
 const DomainForm = ({ onCancel }) => {
     const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.domains);
+
     const [form] = Form.useForm(); // Get the form instance
     const onFinish = (values) => {
         const newDomain = {
@@ -52,7 +54,7 @@ const DomainForm = ({ onCancel }) => {
 
                 <div className="mt-auto flex justify-end space-x-4">
                     <Button onClick={onCancel} style={{ padding: '15px', width: '150px', height: '70px' }}>Cancel</Button>
-                    <Button type="primary" htmlType="submit" style={{ padding: '15px', width: '150px', height: '70px' }}>
+                    <Button loading={loading} type="primary" htmlType="submit" style={{ padding: '15px', width: '150px', height: '70px' }}>
                         Add
                     </Button>
                 </div>
