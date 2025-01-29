@@ -1,10 +1,11 @@
 import React from 'react'
-import { ExclamationCircleTwoTone, HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
-
+import { ExclamationCircleTwoTone} from '@ant-design/icons';
+import dotIcon from "../../assets/icons/dot.png";
+import "./titleItem.css"
 const titleItem = ({ text, isActive }) => (
-    <div className='flex'>
-        {isActive ? <ExclamationCircleTwoTone twoToneColor={'#52c41a'} /> : <span style={{ color: 'red' }}>Not Active</span>}
-        <a href={text} target="_blank" rel="noopener noreferrer">{text}</a>
+    <div className='flex items-center gap-4'>
+        {isActive ? <img src={dotIcon} className='w-3 h-3' alt="" /> : <ExclamationCircleTwoTone className='w-3 h-3' twoToneColor={'#ff0000'}/>}
+        <span id='domainName' className='text-[16px] text-black font-bold'>{text}</span>
     </div>
 )
 
