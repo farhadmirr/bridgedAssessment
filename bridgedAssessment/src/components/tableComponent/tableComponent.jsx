@@ -56,7 +56,7 @@ const TableComponent = ({ order, searchQuery }) => {
             title: 'Verification Status',
             dataIndex: 'status',
             key: 'status',
-            render: (status) => <StatusItem status={status} />,
+            render: (status,record) => <StatusItem status={status} id={record.key} />,
         },
     ];
 
