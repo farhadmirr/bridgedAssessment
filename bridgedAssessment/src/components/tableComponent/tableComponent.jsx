@@ -71,7 +71,7 @@ const TableComponent = ({ order, searchQuery }) => {
                 createdDate: domain.createdDate
             }))}
             loading={loading}
-            pagination={true}
+            pagination={false}
             bordered
         />
     );
