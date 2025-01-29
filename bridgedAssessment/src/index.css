@@ -15,7 +15,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+body{
+  overflow-y: hidden;
+}
 h2{
   font-size: 34px;
   font-weight: 300;
