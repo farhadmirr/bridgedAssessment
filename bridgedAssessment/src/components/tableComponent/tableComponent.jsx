@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import "./tableComponent.css"
 import { Table } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDomains } from '../../redux/domainSlice'; // Adjust the path as needed
@@ -39,7 +40,6 @@ const TableComponent = () => {
     const { data: domains, loading } = useSelector((state) => state.domains);
 
     useEffect(() => {
-        // Fetch domain data on component mount
         dispatch(fetchDomains());
     }, [dispatch]);
 
