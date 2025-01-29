@@ -9,9 +9,9 @@ const domainList = () => {
   return (
     <div className='w-full h-[100vh] p-1 md:p-4 lg:p-10 2xl:p-8 3xl:p-14 flex'>
       <div className='w-full flex flex-col gap-3'>
-        <p>Domains</p>
+        <h2>Domains</h2>
         <div className='flex w-full justify-between'>
-          <Button type="primary" icon={<PlusOutlined />} size='large' className='w-50 '>Add Domain</Button>
+          <Button type="primary" icon={<PlusOutlined />} size='large' className='w-56 3xl:w-64'>Add Domain</Button>
           <div className='w-[700px] flex justify-between'>
             <SelectComponent id={'orderSelect'} setState={setTest} state={test} />
             <Input prefix={<SearchOutlined />} placeholder="Search" />
@@ -20,7 +20,6 @@ const domainList = () => {
         <div>
           <TableComponent />
         </div>
-
       </div>
     </div>
   )
