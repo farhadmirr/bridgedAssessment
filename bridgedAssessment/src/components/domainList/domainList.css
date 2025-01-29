@@ -1,0 +1,13 @@
+.ant-btn-lg {
+    height: 60px;
+}
+
+.ant-select-selection-item {
+    font-size: 18px;
+}
+
+.ant-input-affix-wrapper {
+    height: 100%;
+    width: 330px;
+    font-size: 18px;
+}
