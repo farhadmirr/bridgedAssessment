@@ -8,64 +8,72 @@ import TitleItem from '../titleItem/titleItem';
 const TableComponent = ({ order, searchQuery }) => {
     const dispatch = useDispatch();
     const { data: domains, loading } = useSelector((state) => state.domains);
-  
+
     useEffect(() => {
-      dispatch(fetchDomains());
+        dispatch(fetchDomains());
     }, [dispatch]);
-  
+
 
     const filteredDomains = domains.filter((domain) =>
-      domain.domain.toLowerCase().includes(searchQuery.toLowerCase())
+        domain.domain.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    // Sort by createdDate (ascending or descending)
     const sortedDomains = filteredDomains.sort((a, b) => {
-      if (order === 'Ascending') {
-        return a.domain.localeCompare(b.domain);
-      }
-      if (order === 'Descending') {
-        return b.domain.localeCompare(a.domain);
-      }
-      return 0;
+        if (order === 'Ascending') {
+            return a.createdDate - b.createdDate;
+        }
+        if (order === 'Descending') {
+            return b.createdDate - a.createdDate;
+        }
+        return 0;
     });
-  
+
     const columns = [
-      {
-        title: 'Domain URL',
-        dataIndex: 'domain',
-        key: 'domain',
-        render: (text, record) => <TitleItem text={text} isActive={record.isActive} />,
-      },
-      {
-        title: 'Active Status',
-        dataIndex: 'isActive',
-        key: 'isActive',
-        render: (isActive) => (
-          <span style={{ color: isActive ? 'green' : 'red' }}>
-            {isActive ? 'Active' : 'Not Active'}
-          </span>
-        ),
-      },
-      {
-        title: 'Verification Status',
-        dataIndex: 'status',
-        key: 'status',
-        render: (status) => <StatusItem status={status} />,
-      },
+        {
+            title: 'Domain URL',
+            dataIndex: 'domain',
+            key: 'domain',
+            render: (text, record) => <TitleItem text={text} isActive={record.isActive} />,
+        },
+        {
+            title: 'Active Status',
+            dataIndex: 'isActive',
+            key: 'isActive',
+            render: (isActive) => (
+                <span style={{ color: isActive ? 'green' : 'red' }}>
+                    {isActive ? 'Active' : 'Not Active'}
+                </span>
+            ),
+        },
+        {
+            title: 'Created Date',
+            dataIndex: 'createdDate',
+            key: 'createdDate',
+            render: (text) => new Date(text * 1000).toLocaleDateString(),
+        },
+        {
+            title: 'Verification Status',
+            dataIndex: 'status',
+            key: 'status',
+            render: (status) => <StatusItem status={status} />,
+        },
     ];
-  
+
     return (
-      <Table
-        columns={columns}
-        dataSource={sortedDomains.map((domain) => ({
-          key: domain.id,
-          domain: domain.domain,
-          isActive: domain.isActive,
-          status: domain.status,
-        }))}
-        loading={loading}
-        pagination={true}
-        bordered
-      />
+        <Table
+            columns={columns}
+            dataSource={sortedDomains.map((domain) => ({
+                key: domain.id,
+                domain: domain.domain,
+                isActive: domain.isActive,
+                status: domain.status,
+                createdDate: domain.createdDate
+            }))}
+            loading={loading}
+            pagination={true}
+            bordered
+        />
     );
-  };
+};
 export default TableComponent  
