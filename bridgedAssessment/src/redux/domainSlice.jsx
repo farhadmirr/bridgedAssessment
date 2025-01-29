@@ -15,7 +15,7 @@ export const addDomain = createAsyncThunk('domains/addDomain', async (newDomain)
   return response.data;
 });
 
-export const updateDomain = createAsyncThunk('domains/updateDomain', async ({ id, updatedData }) => {
+export const updateDomain = createAsyncThunk('domains/updateDomain', async ({id, updatedData}) => {
   const response = await axios.put(`${API_BASE_URL}/${id}`, updatedData);
   return response.data;
 });
@@ -49,18 +49,45 @@ const domainSlice = createSlice({
         state.error = action.error.message;
       })
       // Add domain
+      .addCase(addDomain.pending,(state)=>{
+        state.loading= true;
+        state.error= null;
+      })
+      .addCase(addDomain.rejected,(state)=>{
+        state.loading= false;
+        state.error= error.error.message;
+      })
       .addCase(addDomain.fulfilled, (state, action) => {
+        state.loading=false
         state.data.push(action.payload);
       })
       // Update domain
+      .addCase(updateDomain.pending,(state)=>{
+        state.loading= true;
+        state.error= null;
+      })
+      .addCase(updateDomain.rejected,(state)=>{
+        state.loading= false;
+        state.error= error.error.message;
+      })
       .addCase(updateDomain.fulfilled, (state, action) => {
         const index = state.data.findIndex((d) => d.id === action.payload.id);
         if (index !== -1) {
           state.data[index] = action.payload;
         }
+        state.loading=false
       })
       // Delete domain
+      .addCase(deleteDomain.pending,(state)=>{
+        state.loading= true;
+        state.error= null;
+      })
+      .addCase(deleteDomain.rejected,(state)=>{
+        state.loading= false;
+        state.error= error.error.message;
+      })
       .addCase(deleteDomain.fulfilled, (state, action) => {
+        state.loading=false
         state.data = state.data.filter((d) => d.id !== action.payload);
       });
   },
