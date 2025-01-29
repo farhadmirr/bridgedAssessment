@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @theme {
-
   --breakpoint-3xl: 120rem;
 }
 :root {
@@ -19,8 +18,5 @@
 p{
   font-size: 30px;
   font-weight: 300;
-}
-
-.ant-btn-lg{
-  height: 60px;
+  color: rgb(23, 23, 23);
 }
