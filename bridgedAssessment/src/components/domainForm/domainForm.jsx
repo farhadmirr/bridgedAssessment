@@ -1,8 +1,7 @@
 import React from "react";
 import { Form, Input, Button, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addDomain } from "../../redux/domainSlice";
-
+import { addDomain } from "../../api/api";
 const DomainForm = ({ onCancel }) => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.domains);

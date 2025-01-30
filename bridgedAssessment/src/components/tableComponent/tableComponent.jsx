@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import "./tableComponent.css"
 import { Table } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchDomains } from '../../redux/domainSlice';
+import { fetchDomains } from '../../api/api';
 import StatusItem from '../statusItem/statusItem';
 import TitleItem from '../titleItem/titleItem';
 const TableComponent = ({ order, searchQuery }) => {
