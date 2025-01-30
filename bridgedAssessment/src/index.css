@@ -11,12 +11,15 @@
   color: red(255, 255, 255, 0.87);
   background-color: white;
   font-synthesis: none;
+  overflow-x: hidden;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 body{
   overflow-y: hidden;
+  overflow-x:hidden
 }
 h2{
   font-size: 34px;
@@ -26,4 +29,7 @@ h2{
 span{
   font-family: 'Raleway','Roboto'!important;
 }
-
+@media (48rem >= width) {
+  :root{
+  }
+}
