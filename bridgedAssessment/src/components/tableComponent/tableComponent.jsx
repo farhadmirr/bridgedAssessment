@@ -34,7 +34,7 @@ const TableComponent = ({ order, searchQuery }) => {
             title: 'Domain URL',
             dataIndex: 'domain',
             key: 'domain',
-            render: (text, record) => <TitleItem text={text} isActive={record.isActive} />,
+            render: (text, record) => <TitleItem text={text} isActive={record.isActive} domain={record.domain} />,
         },
         {
             title: 'Active Status',

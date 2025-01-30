@@ -7,7 +7,7 @@ const DomainForm = ({ onCancel }) => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.domains);
 
-    const [form] = Form.useForm(); // Get the form instance
+    const [form] = Form.useForm();
     const onFinish = (values) => {
         const newDomain = {
             createdDate: Math.floor(Date.now() / 1000),
@@ -18,8 +18,8 @@ const DomainForm = ({ onCancel }) => {
         dispatch(addDomain(newDomain))
             .then(() => {
                 message.success(`Submitted domain: ${values.domain}`);
-                form.resetFields(); // Clear the form fields
-                onCancel(); // Close the form
+                form.resetFields();
+                onCancel();
             })
             .catch((error) => {
                 message.error(`Failed to add domain: ${error.message}`);
@@ -45,11 +45,11 @@ const DomainForm = ({ onCancel }) => {
                         { required: true, message: "Please enter a domain name!" },
                         {
                             pattern: /^https:\/\/([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/,
-                            message: "Please enter a valid domain (e.g., example.com)",
+                            message: "Please enter a valid domain (eg:https://bridged.media)",
                         },
                     ]}
                 >
-                    <Input placeholder="Ex:https://bridged.media" className="p-5" style={{ padding: '15px' }} />
+                    <Input placeholder="Ex:https://bridged.media" style={{ padding: '15px' }} />
                 </Form.Item>
 
                 <div className="mt-auto flex justify-end space-x-4">
