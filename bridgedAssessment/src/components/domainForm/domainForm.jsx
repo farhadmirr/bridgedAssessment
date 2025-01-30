@@ -44,7 +44,7 @@ const DomainForm = ({ onCancel }) => {
                     rules={[
                         { required: true, message: "Please enter a domain name!" },
                         {
-                            pattern: /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/,
+                            pattern: /^https:\/\/([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/,
                             message: "Please enter a valid domain (e.g., example.com)",
                         },
                     ]}
