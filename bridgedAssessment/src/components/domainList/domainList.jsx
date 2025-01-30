@@ -10,7 +10,7 @@ const domainList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [drawer, setDrawer] = useState(false)
   return (
-    <div className='w-full h-[100vh] p-1 md:p-4 lg:p-10 2xl:p-8 3xl:p-14 flex'>
+    <div className='w-full h-[100vh] p-4 lg:p-10 2xl:p-8 3xl:p-14 flex'>
       <div className='w-full flex flex-col gap-3'>
         <h2>Domains</h2>
         <div className='flex flex-col md:flex-row w-full justify-between'>
