@@ -12,7 +12,9 @@
     font-size: 18px;
 }
 
-
+.ant-input{
+    font-size: 16px!important;
+}
 @media (48rem >= width) {
     .ant-input-affix-wrapper {
         height: 60px;
