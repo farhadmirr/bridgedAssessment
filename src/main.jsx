@@ -8,8 +8,6 @@ import MainPage from './pages/mainPage.jsx'
 createRoot(
   document.getElementById('root')).render(
     <Provider store={store}>
-      <StrictMode>
         <MainPage />
-      </StrictMode>,
     </Provider>
   )
