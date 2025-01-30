@@ -1,9 +1,9 @@
 import React from 'react'
 import "./drawerComponent.css"
-import { Drawer ,Button,Typography} from 'antd'
+import { Drawer, Button, Typography } from 'antd'
 import DomainForm from '../domainForm/domainForm'
 import { CloseOutlined } from '@ant-design/icons'
-const drawerComponent = ({ open, setOpen }) => {
+const drawerComponent = ({ open, setOpen, FormComponent,formProps }) => {
   const onClose = () => {
     setOpen(false)
   }
@@ -15,16 +15,18 @@ const drawerComponent = ({ open, setOpen }) => {
       width={'45%'}
       closeIcon={null}
       title={
-        <div className="flex justify-between items-center absolute top-[50px]" style={{right: `calc(100% + 50px)`, transform: "rotateY(10deg)"}}>
+        <div className="flex justify-between items-center absolute top-[50px]" style={{ right: `calc(100% + 50px)`, transform: "rotateY(10deg)" }}>
           <Button
             type="text"
-            icon={<CloseOutlined style={{ fontSize: "25px",color:'white' }} />}
+            icon={<CloseOutlined style={{ fontSize: "25px", color: 'white' }} />}
             onClick={onClose}
           />
         </div>
       }
     >
-      <DomainForm onCancel={onClose} />
+      {FormComponent && <FormComponent {...formProps} onCancel={onClose} />}
+
+      {/* <DomainForm onCancel={onClose} /> */}
     </Drawer>
   )
 }

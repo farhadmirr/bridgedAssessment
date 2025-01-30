@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchDomains } from '../../api/api';
 import StatusItem from '../statusItem/statusItem';
 import TitleItem from '../titleItem/titleItem';
-const TableComponent = ({ order, searchQuery }) => {
+const TableComponent = ({ order, searchQuery,setEditing,setDrawer }) => {
     const dispatch = useDispatch();
     const { data: domains, loading } = useSelector((state) => state.domains);
 
@@ -56,7 +56,7 @@ const TableComponent = ({ order, searchQuery }) => {
             title: 'Verification Status',
             dataIndex: 'status',
             key: 'status',
-            render: (status,record) => <StatusItem status={status} id={record.key} />,
+            render: (status,record) => <StatusItem record={record} setEditing={setEditing} setDrawer={setDrawer} />,
             // responsive: ["sm"]
         },
     ];

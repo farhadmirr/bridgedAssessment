@@ -7,6 +7,10 @@ export const fetchDomains = createAsyncThunk('domains/fetchDomains', async () =>
   const response = await axios.get(API_BASE_URL);
   return response.data;
 });
+export const fetchDomain = createAsyncThunk('domains/fetchDomain', async () => {
+  const response = await axios.get(`${API_BASE_URL}/${id}`);
+  return response.data;
+});
 
 export const addDomain = createAsyncThunk('domains/addDomain', async (newDomain) => {
   const response = await axios.post(API_BASE_URL, newDomain);

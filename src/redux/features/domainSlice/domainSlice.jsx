@@ -1,6 +1,6 @@
 // src/redux/domainSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchDomains,addDomain,deleteDomain,updateDomain } from '../../../api/api';
+import { fetchDomains,addDomain,deleteDomain,updateDomain,fetchDomain } from '../../../api/api';
 
 const domainSlice = createSlice({
   name: 'domains',
@@ -8,8 +8,16 @@ const domainSlice = createSlice({
     data: [],
     loading: false,
     error: null,
+    editingItem: null,
   },
-  reducers: {},
+  reducers: {
+    setEditingItem: (state, action) => {
+      state.editingItem = action.payload;
+    },
+    clearEditingItem: (state) => {
+      state.editingItem = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // Fetch domains
@@ -22,6 +30,19 @@ const domainSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchDomains.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      //Fetch Single Domain
+      .addCase(fetchDomain.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchDomain.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchDomain.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
@@ -69,5 +90,5 @@ const domainSlice = createSlice({
       });
   },
 });
-
+export const { setEditingItem, clearEditingItem } = domainSlice.actions;
 export default domainSlice.reducer;
