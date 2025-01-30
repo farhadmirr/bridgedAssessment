@@ -3,7 +3,6 @@ import "./drawerComponent.css"
 import { Drawer ,Button,Typography} from 'antd'
 import DomainForm from '../domainForm/domainForm'
 import { CloseOutlined } from '@ant-design/icons'
-import "./drawerComponent.css"
 const drawerComponent = ({ open, setOpen }) => {
   const onClose = () => {
     setOpen(false)
@@ -25,7 +24,6 @@ const drawerComponent = ({ open, setOpen }) => {
         </div>
       }
     >
-
       <DomainForm onCancel={onClose} />
     </Drawer>
   )
