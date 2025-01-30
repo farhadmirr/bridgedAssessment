@@ -1,0 +1,12 @@
+.ant-drawer-header{
+    border-bottom: 0px!important;
+    position: absolute!important;
+    
+}
+
+@media screen and (max-width: 48rem) {
+    .ant-drawer-content-wrapper{
+        width: 70%!important;
+    }
+    
+} 
