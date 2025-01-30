@@ -51,7 +51,6 @@ const TableComponent = ({ order, searchQuery }) => {
             dataIndex: 'createdDate',
             key: 'createdDate',
             render: (text) => new Date(text * 1000).toLocaleDateString(),
-            responsive:['sm']
         },
         {
             title: 'Verification Status',
@@ -75,7 +74,9 @@ const TableComponent = ({ order, searchQuery }) => {
             loading={loading}
             pagination={false}
             bordered
+            scroll={{ x: 'max-content' }}
         />
+
     );
 };
 export default TableComponent  
