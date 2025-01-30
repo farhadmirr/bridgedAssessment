@@ -36,7 +36,7 @@ const StatusItem = ({ record, setEditing, setDrawer }) => {
 
     const items = [
         { label: <span>View Props</span>, key: '0', disabled: true },
-        { label: <span style={{ fontWeight: '700' }}>Verify</span>, key: '1', onClick: handleVerify },
+        { label: <span style={{ fontWeight: record.status!=='verified'?'700':'400' }}>Verify</span>,disabled:record.status==='verified', key: '1', onClick: handleVerify },
         { label: <span>Install Script</span>, key: '3', disabled: true },
         { label: <span className='text-red-600' style={{ fontWeight: '700' }}>Delete</span>, key: '4', onClick: handleDelete },
         { label: <span style={{ fontWeight: '700' }}>Edit</span>, key: '5', onClick: () => {
