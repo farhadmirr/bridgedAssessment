@@ -23,9 +23,6 @@ const domainList = () => {
       dispatch(clearEditingItem())
     }
   }, [drawerOpen])
-  useEffect(() => {
-    console.log(editing)
-  }, [editing])
 
   return (
     <div className='w-full h-[100vh] p-4 lg:p-10 2xl:p-8 3xl:p-14 flex'>
