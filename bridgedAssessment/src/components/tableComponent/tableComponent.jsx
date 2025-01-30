@@ -51,12 +51,14 @@ const TableComponent = ({ order, searchQuery }) => {
             dataIndex: 'createdDate',
             key: 'createdDate',
             render: (text) => new Date(text * 1000).toLocaleDateString(),
+            responsive:['sm']
         },
         {
             title: 'Verification Status',
             dataIndex: 'status',
             key: 'status',
             render: (status,record) => <StatusItem status={status} id={record.key} />,
+            // responsive: ["sm"]
         },
     ];
 
