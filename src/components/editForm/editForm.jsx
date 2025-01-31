@@ -44,7 +44,7 @@ const EditForm = ({ onCancel }) => {
                     rules={[
                         { required: true, message: "Please enter a domain name!" },
                         {
-                            pattern: /^https:\/\/([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/,
+                            pattern: /^https:\/\/([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}(\/.*)?$/,
                             message: "Please enter a valid domain (eg:https://bridged.media)",
                         },
                     ]}
